@@ -44,7 +44,7 @@ class TwistsApp {
             id: 1,
             name: 'Usuario Actual',
             username: 'usuario_actual',
-            avatar: '/api/placeholder/48/48'
+            avatar: 'foto.webp'
         };
 
         // Obtener elementos del DOM
@@ -428,7 +428,7 @@ class TwistsApp {
             id: 2,
             name: 'Dev JavaScript',
             username: 'devjs',
-            avatar: '/api/placeholder/48/48'
+            avatar: 'foto2.webp'
         };
 
         // Twist principal
@@ -490,7 +490,7 @@ class TwistsApp {
                 id: 3,
                 name: 'TypeScript Fan',
                 username: 'ts_rocks',
-                avatar: '/api/placeholder/48/48'
+                avatar: 'foto3.webp'
             },
             timestamp: new Date(Date.now() - 3600000), // 1 hora atrás
             childIds: [],
