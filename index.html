@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twists - Mensajes en hilos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar / Panel lateral -->
+        <aside class="sidebar">
+            <div class="logo">
+                <svg viewBox="0 0 24 24" class="logo-icon">
+                    <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z" fill="currentColor"></path>
+                </svg>
+                <h1>Twists</h1>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li class="active"><a href="#"><span class="icon">🏠</span>Inicio</a></li>
+                    <li><a href="#"><span class="icon">🔍</span>Explorar</a></li>
+                    <li><a href="#"><span class="icon">🔔</span>Notificaciones</a></li>
+                    <li><a href="#"><span class="icon">📨</span>Mensajes</a></li>
+                    <li><a href="#"><span class="icon">👤</span>Perfil</a></li>
+                </ul>
+            </nav>
+            <button class="new-twist-btn-sidebar">Nuevo Twist</button>
+        </aside>
+
+        <!-- Main Content / Contenido principal -->
+        <main class="main-content">
+            <header class="page-header">
+                <h2>Inicio</h2>
+            </header>
+
+            <!-- Formulario para nuevo twist -->
+            <div class="compose-twist">
+                <div class="user-avatar">
+                    <img src="/api/placeholder/48/48" alt="Avatar">
+                </div>
+                <div class="compose-form">
+                    <textarea id="twist-content" placeholder="¿Qué está pasando?"></textarea>
+                    <div class="compose-actions">
+                        <div class="compose-tools">
+                            <button class="tool-btn">📷</button>
+                            <button class="tool-btn">📊</button>
+                            <button class="tool-btn">😊</button>
+                            <button class="tool-btn">📌</button>
+                        </div>
+                        <button id="publish-twist" class="publish-btn">Publicar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline / Línea de tiempo -->
+            <section class="timeline" id="timeline">
+                <!-- Los twists se agregarán aquí dinámicamente -->
+            </section>
+        </main>
+
+        <!-- Trending / Tendencias -->
+        <aside class="trending">
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" placeholder="Buscar en Twists">
+            </div>
+
+            <div class="trends-container">
+                <h3>Tendencias para ti</h3>
+                <div class="trend-item">
+                    <span class="category">Tecnología · Tendencia</span>
+                    <strong class="trend-name">#TypeScript</strong>
+                    <span class="trend-count">2,543 Twists</span>
+                </div>
+                <div class="trend-item">
+                    <span class="category">Programación · Tendencia</span>
+                    <strong class="trend-name">#WebDev</strong>
+                    <span class="trend-count">1,892 Twists</span>
+                </div>
+                <div class="trend-item">
+                    <span class="category">Educación · Tendencia</span>
+                    <strong class="trend-name">#AprendiendoACodear</strong>
+                    <span class="trend-count">1,208 Twists</span>
+                </div>
+            </div>
+
+            <div class="who-to-follow">
+                <h3>A quién seguir</h3>
+                <div class="follow-suggestion">
+                    <img src="/api/placeholder/48/48" alt="Sugerencia" class="suggestion-avatar">
+                    <div class="suggestion-info">
+                        <strong>Dev JavaScript</strong>
+                        <span>@devjs</span>
+                    </div>
+                    <button class="follow-btn">Seguir</button>
+                </div>
+                <div class="follow-suggestion">
+                    <img src="/api/placeholder/48/48" alt="Sugerencia" class="suggestion-avatar">
+                    <div class="suggestion-info">
+                        <strong>TypeScript Fan</strong>
+                        <span>@ts_rocks</span>
+                    </div>
+                    <button class="follow-btn">Seguir</button>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Template para los twists -->
+    <template id="twist-template">
+        <article class="twist">
+            <div class="twist-avatar">
+                <img src="/api/placeholder/48/48" alt="Avatar">
+            </div>
+            <div class="twist-content">
+                <div class="twist-header">
+                    <strong class="twist-author">Usuario</strong>
+                    <span class="twist-username">@usuario</span>
+                    <span class="twist-time">ahora</span>
+                </div>
+                <p class="twist-text"></p>
+                <div class="twist-actions">
+                    <button class="action-btn reply-btn"><span>💬</span> <span class="count">0</span></button>
+                    <button class="action-btn retwist-btn"><span>🔄</span> <span class="count">0</span></button>
+                    <button class="action-btn like-btn"><span>❤️</span> <span class="count">0</span></button>
+                    <button class="action-btn share-btn"><span>📤</span></button>
+                </div>
+            </div>
+        </article>
+    </template>
+
+    <!-- Template para los twists en hilo -->
+    <template id="thread-twist-template">
+        <article class="twist thread-twist">
+            <div class="twist-avatar">
+                <img src="/api/placeholder/48/48" alt="Avatar">
+                <div class="thread-line"></div>
+            </div>
+            <div class="twist-content">
+                <div class="twist-header">
+                    <strong class="twist-author">Usuario</strong>
+                    <span class="twist-username">@usuario</span>
+                    <span class="twist-time">ahora</span>
+                </div>
+                <p class="twist-text"></p>
+                <div class="twist-actions">
+                    <button class="action-btn reply-btn"><span>💬</span> <span class="count">0</span></button>
+                    <button class="action-btn retwist-btn"><span>🔄</span> <span class="count">0</span></button>
+                    <button class="action-btn like-btn"><span>❤️</span> <span class="count">0</span></button>
+                    <button class="action-btn share-btn"><span>📤</span></button>
+                </div>
+            </div>
+        </article>
+    </template>
+
+    <!-- Template para el formulario de respuesta -->
+    <template id="reply-form-template">
+        <div class="reply-form">
+            <div class="user-avatar">
+                <img src="/api/placeholder/48/48" alt="Avatar">
+                <div class="thread-line"></div>
+            </div>
+            <div class="compose-form">
+                <textarea class="reply-content" placeholder="Escribe tu respuesta..."></textarea>
+                <div class="compose-actions">
+                    <div class="compose-tools">
+                        <button class="tool-btn">📷</button>
+                        <button class="tool-btn">😊</button>
+                    </div>
+                    <button class="reply-btn publish-btn">Responder</button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script src="main.js"></script>
+</body>
+</html>
