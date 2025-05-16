@@ -680,4 +680,68 @@ img {
         --light-text: #657786;
         --hover-background: rgba(29, 161, 242, 0.1);
     }
+
+}
+* Corregir el fondo de la caja de texto */
+#twist-content, .reply-content {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Asegurar que los textos de navegación tengan el color correcto */
+.main-nav ul li span,
+.logo span,
+.page-header {
+    color: var(--text-color);
+}
+
+/* Asegurar que la caja de búsqueda tenga el color correcto */
+.search-box input {
+    color: var(--text-color);
+}
+
+/* Corregir el color del encabezado en modo oscuro */
+.page-header {
+    background-color: rgba(21, 32, 43, 0.95); /* Usar el color de fondo oscuro con transparencia */
+}
+
+/* Asegurar que el área de composición tenga el fondo correcto */
+.compose-twist {
+    background-color: var(--background-color);
+}
+
+/* Ajustar el avatar para que tenga el mismo fondo oscuro */
+.avatar-container {
+    background-color: var(--background-color);
+}
+
+/* Asegurar que los botones de herramientas tengan el color correcto */
+.tool-btn {
+    color: var(--text-color);
+}
+
+/* Asegurar que el placeholder del área de texto tenga el color correcto */
+#twist-content::placeholder, .reply-content::placeholder {
+    color: var(--secondary-text);
+}
+
+/* Asegurar que el texto "Inicio" tenga el color correcto */
+.main-nav ul li {
+    color: var(--text-color);
+}
+
+@media (prefers-color-scheme: dark) {
+    /* Reforzar colores para el modo oscuro */
+    #twist-content, .reply-content {
+        background-color: #15202b;
+        color: #ffffff;
+    }
+
+    .page-header {
+        background-color: rgba(21, 32, 43, 0.95);
+    }
+
+    .main-nav ul li, .logo span {
+        color: #ffffff;
+    }
 }
